@@ -10,7 +10,6 @@ namespace Isaac.Player
         [Inject]
         private void Construct()
         {
-            Debug.Log($"Nice try");
         }
     }
 }

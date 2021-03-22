@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using Isaac.Gun;
 using Isaac.Player;
 using UnityEngine;
 using Zenject;
@@ -15,6 +17,14 @@ public class GameInstaller : MonoInstaller
         // P.S.
         // И так сойдет 
         InstallPlayer();
+        
+        GameObject gun = Instantiate(_settings.Gun,
+            new Vector3(5f, 0f, 5f), 
+            Quaternion.identity);
+
+        Container.Bind<IGun>().To<DefaultGun>().FromComponentOn(gun).AsSingle();
+        Container.Bind<DetectPlayer>().FromComponentOn(gun).AsSingle();
+
     }
 
     private void InstallPlayer()
@@ -27,6 +37,8 @@ public class GameInstaller : MonoInstaller
             .WithArguments(player.GetComponent<CharacterController>());
         
         Container.BindInterfacesTo<PlayerInputHandler>().AsSingle();
+        
+        Container.Bind<PlayerShootHandler>().AsSingle();
         Container.Bind<PlayerFacade>().FromComponentOn(player).AsSingle();
     }
     
@@ -35,5 +47,6 @@ public class GameInstaller : MonoInstaller
     {
         public GameObject Player;
         public Transform PlayerStartPosition;
+        public GameObject Gun;
     }
 }

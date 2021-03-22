@@ -7,16 +7,31 @@ namespace Isaac.Player
     public class PlayerInputHandler : IFixedTickable
     {
         private readonly PlayerView _playerView;
+        private readonly PlayerShootHandler _playerShootHandler;
         private readonly Settings _settings;
 
         public PlayerInputHandler(PlayerView playerView,
+            PlayerShootHandler playerShootHandler,
             Settings settings)
         {
             _playerView = playerView;
+            _playerShootHandler = playerShootHandler;
             _settings = settings;
         }
 
         public void FixedTick()
+        {
+            Move();
+            Shoot();
+        }
+
+        private void Shoot()
+        {
+            if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) 
+                _playerShootHandler.Shoot();
+        }
+
+        public void Move()
         {
             Vector3 movement = Vector3.zero;
             
@@ -36,5 +51,7 @@ namespace Isaac.Player
         {
             public float Speed;
         }
+        
+
     }
 }
