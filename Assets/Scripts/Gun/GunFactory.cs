@@ -25,9 +25,13 @@ namespace Isaac.Gun
             switch (type)
             {
                 case GunType.DefaultGun: 
-                    obj = _container.InstantiatePrefab(_settings.DefaultGun, at, Quaternion.identity, null);
+                    obj = _container.InstantiatePrefab(_settings.DefaultGunPrefab, at,
+                        _settings.DefaultGunPrefab.transform.rotation, null);
                     break;
-                
+                case GunType.Pistol:
+                    obj = _container.InstantiatePrefab(_settings.PistolPrefab, at,
+                        _settings.PistolPrefab.transform.rotation, null);
+                    break;
                 default:
                     obj = null; 
                     break;
@@ -39,7 +43,8 @@ namespace Isaac.Gun
         [Serializable]
         public class Settings
         {
-            public GameObject DefaultGun;
+            public GameObject DefaultGunPrefab;
+            public GameObject PistolPrefab;
         }
     }
 }

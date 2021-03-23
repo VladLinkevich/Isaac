@@ -7,8 +7,10 @@ using Zenject;
 
 namespace Isaac.Gun
 {
-    public class BasicGun : MonoBehaviour
+    public abstract class BasicGun : MonoBehaviour, IGun
     {
+        [SerializeField] private Vector3 localPositionOnPlayer;
+        
         private PlayerShootHandler _playerShoot;
 
         [Inject]
@@ -16,20 +18,21 @@ namespace Isaac.Gun
         {
             _playerShoot = playerShootHandler;
         }
-        
+        public abstract void Shoot();
         private void OnTriggerEnter(Collider other)
         {
             Debug.Log("touch");
             if (other.gameObject.CompareTag("Player"))
             {
-                _playerShoot.Gun = this;
+                _playerShoot.SetGun(this);
+                transform.SetParent(other.gameObject.transform);
+                transform.localPosition = localPositionOnPlayer;
             }
         }
-        
-        public void Shoot()
+
+        public void Destroy()
         {
-            Debug.Log($"Default shoot");
+            Destroy(this.gameObject);
         }
-        
     }
 }

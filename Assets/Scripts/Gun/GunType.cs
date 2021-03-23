@@ -2,6 +2,7 @@
 {
     public enum GunType
     {
-        DefaultGun        
+        DefaultGun,
+        Pistol
     }
 }

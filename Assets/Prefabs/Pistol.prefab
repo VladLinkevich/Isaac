@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4570447034155875918}
   - component: {fileID: 125873137415565474}
   - component: {fileID: 7855658467638239945}
-  - component: {fileID: 4025971491649126466}
+  - component: {fileID: -1614480660824572503}
   m_Layer: 0
-  m_Name: DefaultGun
+  m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,12 +110,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: 4025971491649126466}
+  - {fileID: 0}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 0}
   _bindType: 3
---- !u!114 &4025971491649126466
+--- !u!114 &-1614480660824572503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6965241544929780756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 265885e74096484a85b8f0f79429f73e, type: 3}
+  m_Script: {fileID: 11500000, guid: cffce47c2c34475dab31ee152eb664a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localPositionOnPlayer: {x: 0.75, y: 0, z: 0.5}
+  localPositionOnPlayer: {x: -0.75, y: 0, z: 0.5}

@@ -11,22 +11,13 @@ public class GameInstaller : MonoInstaller
 {
     [Inject] Settings _settings = null;
 
-    // Ой вся прога в одном контейнере
+    // Ой вся прога в одном контейнере P.S. И так сойдет 
     // Так что все прокидываем в конструкторе 
     // Если монобех то в нем первый метод должен быть Construct
-    // P.S.
-    // И так сойдет 
     public override void InstallBindings()
     {
         InstallPlayer();
-
-        Container.Bind<IGunFactory>().To<GunFactory>().AsSingle();
-        Container.BindInterfacesTo<GunSpawner>().AsSingle();
-
-
-        //GameObject gun = Container.InstantiatePrefab(_settings.Gun,
-        //    new Vector3(5f, 0f, 5f), 
-        //    Quaternion.identity, null);
+        InstallGunFactory();
     }
 
     private void InstallPlayer()
@@ -43,12 +34,17 @@ public class GameInstaller : MonoInstaller
         Container.Bind<PlayerShootHandler>().AsSingle();
         Container.Bind<PlayerFacade>().FromComponentOn(player).AsSingle();
     }
+
+    private void InstallGunFactory()
+    {
+        Container.Bind<IGunFactory>().To<GunFactory>().AsSingle();
+        Container.BindInterfacesTo<GunSpawner>().AsSingle();
+    }
     
     [Serializable]
     public class Settings
     {
         public GameObject Player;
         public Transform PlayerStartPosition;
-        public GameObject Gun;
     }
 }
