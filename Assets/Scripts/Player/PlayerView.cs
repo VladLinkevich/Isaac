@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Isaac.Player
 {
@@ -6,6 +7,7 @@ namespace Isaac.Player
     {
         private readonly CharacterController _characterController;
 
+        [Inject]
         public PlayerView(CharacterController characterController)
         {
             _characterController = characterController;

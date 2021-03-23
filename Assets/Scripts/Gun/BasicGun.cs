@@ -1,10 +1,13 @@
-﻿using Isaac.Player;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Isaac.Player;
 using UnityEngine;
 using Zenject;
 
 namespace Isaac.Gun
 {
-    public class DetectPlayer : MonoBehaviour
+    public class BasicGun : MonoBehaviour
     {
         private PlayerShootHandler _playerShoot;
 
@@ -19,8 +22,14 @@ namespace Isaac.Gun
             Debug.Log("touch");
             if (other.gameObject.CompareTag("Player"))
             {
-                _playerShoot.SetGunTrigger();
+                _playerShoot.Gun = this;
             }
         }
+        
+        public void Shoot()
+        {
+            Debug.Log($"Default shoot");
+        }
+        
     }
 }

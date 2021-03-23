@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using Isaac.Gun;
 using Isaac.Player;
-using UnityEngine;
 using Zenject;
 
 
@@ -13,6 +11,7 @@ namespace Isaac.StartGame
     public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
     {
         public PlayerSettings Player;
+        public GunsSettings Guns;
         public GameInstaller.Settings GameInstaller;
         
         [Serializable]
@@ -20,9 +19,17 @@ namespace Isaac.StartGame
         {
             public PlayerInputHandler.Settings PlayerInputHandler;
         }
+        
+        [Serializable]
+        public class GunsSettings
+        {
+            public GunFactory.Settings GunFactory;
+        }
         public override void InstallBindings()
         {
             Container.BindInstance(GameInstaller).IfNotBound();
+            
+            Container.BindInstance(Guns.GunFactory).IfNotBound();
             
             Container.BindInstance(Player.PlayerInputHandler).IfNotBound();
         }

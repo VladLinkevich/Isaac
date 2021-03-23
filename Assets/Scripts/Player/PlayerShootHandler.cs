@@ -5,25 +5,14 @@ namespace Isaac.Player
 {
     public class PlayerShootHandler
     {
-        private IGun _playerGun;
-        private IGun _gun;
+        private BasicGun _playerBasicGun;
 
-        public PlayerShootHandler(IGun gun)
+        public BasicGun Gun
         {
-            _gun = gun;
+            get => _playerBasicGun;
+            set => _playerBasicGun = value;
         }
-
-        public IGun Gun
-        {
-            get => _playerGun;
-            private set => _playerGun = value;
-        }
-
-        public void SetGunTrigger()
-        {
-            if (_gun != null)
-                Gun = _gun;
-        }
+        
         public void Shoot()
         {
             Debug.Log("Fire is ");

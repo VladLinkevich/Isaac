@@ -1,7 +1,9 @@
-﻿namespace Isaac.Gun
+﻿using UnityEngine;
+
+namespace Isaac.Gun
 {
     public interface IGun
     {
-        void Shoot();
+        GameObject Shoot();
     }
 }
