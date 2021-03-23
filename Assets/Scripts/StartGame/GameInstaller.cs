@@ -1,4 +1,5 @@
 ﻿using System;
+using Isaac.Bullet;
 using Isaac.Gun;
 using Isaac.Player;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class GameInstaller : MonoInstaller
     {
         InstallPlayer();
         InstallGunFactory();
+        InstallBulletFactory();
     }
 
     private void InstallPlayer()
@@ -41,6 +43,12 @@ public class GameInstaller : MonoInstaller
         Container.BindInterfacesTo<GunSpawner>().AsSingle();
     }
     
+    private void InstallBulletFactory()
+    {
+        Container.Bind<IBulletFactory>().To<BulletFactory>().AsSingle();
+        Container.BindInterfacesTo<BulletPool>().AsSingle();
+    }
+
     [Serializable]
     public class Settings
     {
