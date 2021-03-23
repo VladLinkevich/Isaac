@@ -7,6 +7,15 @@ namespace Isaac.Player
     {
         private BasicGun _playerBasicGun;
         
+        private readonly PlayerFacade _player;
+
+        private float _lastShootTime;
+
+        public PlayerShootHandler(PlayerFacade player)
+        {
+            _player = player;
+        }
+        
         public BasicGun Gun
         {
             get => _playerBasicGun;
@@ -22,9 +31,15 @@ namespace Isaac.Player
         }
         
         public void Shoot()
-        { 
-            if (Gun == true) 
-                Gun.Shoot();
+        {
+            if (Gun == true)
+            {
+                if (Time.realtimeSinceStartup - _lastShootTime > Gun.MaxShootDelay)
+                {
+                    _lastShootTime = Time.realtimeSinceStartup;
+                    Gun.Shoot(_player.Transform);
+                }
+            }
         }
     }
 }

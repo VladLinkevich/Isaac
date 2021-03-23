@@ -21,10 +21,10 @@ MonoBehaviour:
       PistolPrefab: {fileID: 6965241544929780756, guid: 92c11dba239dc3343a0a9a7fc5f2dbc0, type: 3}
   Bullets:
     BulletFactory:
-      BulletPrefab: {fileID: 0}
+      BulletPrefab: {fileID: 2431014465539120614, guid: 7f8f524dd07ec6f41bf1fea8548330dc, type: 3}
     BulletPool:
-      BulletStartCount: 0
-      Bullets: {fileID: 0}
+      BulletStartCount: 20
+      Bullets: {fileID: 6876148846440075495, guid: 049528c96d1144241853224f5f5e4694, type: 3}
   GameInstaller:
     Player: {fileID: 6216127247236871480, guid: 87a6494eec6831a47b3dbf95143c46a9, type: 3}
     PlayerStartPosition: {fileID: 4138774655835109843, guid: c1d6fbd569de7e04f9ffb0c3e2f3bdcf, type: 3}

@@ -46,7 +46,7 @@ public class GameInstaller : MonoInstaller
     private void InstallBulletFactory()
     {
         Container.Bind<IBulletFactory>().To<BulletFactory>().AsSingle();
-        Container.BindInterfacesTo<BulletPool>().AsSingle();
+        Container.BindInterfacesAndSelfTo<BulletPool>().AsSingle();
     }
 
     [Serializable]

@@ -128,3 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localPositionOnPlayer: {x: 0.75, y: 0, z: 0.5}
+  maxShootDelay: 2
+  lifeTime: 1
+  speed: 0
+  damage: 1

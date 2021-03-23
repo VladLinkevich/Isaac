@@ -39,7 +39,7 @@ namespace Isaac.Bullet
         {
             foreach (var bullet in _bullets)
             {
-                if (bullet.activeInHierarchy == true)
+                if (bullet.activeInHierarchy == false)
                 {
                     bullet.SetActive(true);
                     return bullet;

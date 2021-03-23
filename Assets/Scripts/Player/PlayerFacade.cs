@@ -11,5 +11,7 @@ namespace Isaac.Player
         private void Construct()
         {
         }
+
+        public Transform Transform => gameObject.transform;
     }
 }

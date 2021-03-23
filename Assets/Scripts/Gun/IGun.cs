@@ -4,6 +4,6 @@ namespace Isaac.Gun
 {
     public interface IGun
     {
-        void Shoot();
+        void Shoot(Transform at);
     }
 }

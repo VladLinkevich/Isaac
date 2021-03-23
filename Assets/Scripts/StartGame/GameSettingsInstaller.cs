@@ -41,7 +41,7 @@ namespace Isaac.StartGame
             Container.BindInstance(Player.PlayerInputHandler).IfNotBound();
             
             Container.BindInstance(Guns.GunFactory).IfNotBound();
-            
+
             Container.BindInstance(Bullets.BulletFactory).IfNotBound();
             Container.BindInstance(Bullets.BulletPool).IfNotBound();
         }
