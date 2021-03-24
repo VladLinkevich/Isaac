@@ -32,6 +32,7 @@ public class GameInstaller : MonoInstaller
             .WithArguments(player.GetComponent<CharacterController>());
         
         Container.BindInterfacesTo<PlayerInputHandler>().AsSingle();
+        Container.BindInterfacesTo<PlayerRotationHandler>().AsSingle();
         
         Container.Bind<PlayerShootHandler>().AsSingle();
         Container.Bind<PlayerFacade>().FromComponentOn(player).AsSingle();

@@ -51,7 +51,5 @@ namespace Isaac.Player
         {
             public float Speed;
         }
-        
-
     }
 }

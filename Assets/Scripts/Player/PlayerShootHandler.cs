@@ -5,18 +5,16 @@ namespace Isaac.Player
 {
     public class PlayerShootHandler
     {
-        private BasicGun _playerBasicGun;
+        private IGun _playerBasicGun;
         
         private readonly PlayerFacade _player;
-
-        private float _lastShootTime;
 
         public PlayerShootHandler(PlayerFacade player)
         {
             _player = player;
         }
         
-        public BasicGun Gun
+        public IGun Gun
         {
             get => _playerBasicGun;
             private set => _playerBasicGun = value;
@@ -24,22 +22,16 @@ namespace Isaac.Player
 
         public void SetGun(BasicGun gun)
         {
-            if (Gun == true)
-                Gun.Destroy();
+            Gun?.Throw();
             
             Gun = gun;
         }
         
+        // тут мы не производим выстрел, а просто просим чтобы оружее выстрелило 
+        // за выстрел отвечает сам gun
         public void Shoot()
         {
-            if (Gun == true)
-            {
-                if (Time.realtimeSinceStartup - _lastShootTime > Gun.MaxShootDelay)
-                {
-                    _lastShootTime = Time.realtimeSinceStartup;
-                    Gun.Shoot(_player.Transform);
-                }
-            }
+            Gun?.Shoot(_player.Transform);
         }
     }
 }

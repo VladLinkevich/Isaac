@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -8,8 +9,12 @@ namespace Isaac.Gun
     {
         public override void Shoot(Transform at)
         {
-            Debug.Log($"piu piu");
             base.Shoot(at);
+        }
+
+        public override void Fire(Transform at)
+        {
+            base.Fire(at);
         }
     }
 }
