@@ -28,7 +28,8 @@ Transform:
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 6949712568940732673}
   m_Father: {fileID: 2429311373364582495}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
@@ -91,7 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2429311373364582495}
   - component: {fileID: 125873137415565474}
-  - component: {fileID: 7855658467638239945}
   - component: {fileID: -1614480660824572503}
   m_Layer: 0
   m_Name: Pistol
@@ -128,24 +128,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7855658467638239945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965241544929780756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 0}
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 0}
-  _bindType: 3
 --- !u!114 &-1614480660824572503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +140,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffce47c2c34475dab31ee152eb664a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 6949712568940732673}
   localPositionOnPlayer: {x: 0.75, y: 0, z: 0.5}
-  maxShootDelay: 1
-  lifeTime: 2
-  speed: 0
-  damage: 0
+  maxShootDelay: 0.1
+  range: 10
+  speed: 10
+  damage: 999
+--- !u!1 &8224524972108933841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6949712568940732673}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6949712568940732673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224524972108933841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2898912526483925493}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
