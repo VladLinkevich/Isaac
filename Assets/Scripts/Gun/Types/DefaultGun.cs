@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Isaac.Gun
 {
-    public class DefaultGun : BasicGun
+    public class DefaultGun : Gun
     {
         public override void Shoot(Transform at)
         {

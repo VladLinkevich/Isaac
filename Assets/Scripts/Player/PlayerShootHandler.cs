@@ -20,7 +20,7 @@ namespace Isaac.Player
             private set => _playerBasicGun = value;
         }
 
-        public void SetGun(BasicGun gun)
+        public void SetGun(IGun gun)
         {
             Gun?.Throw();
             

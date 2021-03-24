@@ -8,8 +8,9 @@ namespace Isaac.Bullet
     public class BulletPool : IInitializable, IPool
     {
         private List<GameObject> _bullets;
-        private int bulletsCount;
-
+        private int _bulletsCount;
+        private GameObject _bulletsParent;
+        
         private readonly IBulletFactory _factory;
         private readonly Settings _settings;
 
@@ -24,15 +25,8 @@ namespace Isaac.Bullet
         
         public void Initialize()
         {
-            GameObject bullets = GameObject.Instantiate(_settings.Bullets);
-            bulletsCount = _settings.BulletStartCount;
-            
-            for (int i = 0, end = bulletsCount; i < end; ++i)
-            {
-                var bullet = _factory.Create();
-                bullet.transform.parent = bullets.transform;
-                _bullets.Add(bullet);
-            }
+            _bulletsParent = GameObject.Instantiate(_settings.Bullets);
+            AddedObjectInPool(_settings.BulletStartCount);
         }
 
         public GameObject GetObject()
@@ -46,8 +40,23 @@ namespace Isaac.Bullet
                 }
             }
 
-            return null;
+            AddedObjectInPool(_settings.BulletStartCount);
+            
+            return GetObject();
         }
+
+        private void AddedObjectInPool(int count)
+        {
+            _bulletsCount += count;
+            
+            for (int i = 0, end = count; i < end; ++i)
+            {
+                var bullet = _factory.Create();
+                bullet.transform.parent = _bulletsParent.transform;
+                _bullets.Add(bullet);
+            }
+        }
+
 
         public void Destroy(GameObject bullet)
         {

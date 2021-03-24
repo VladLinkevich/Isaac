@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Isaac.Gun
 {
-    public class Pistol : BasicGun
+    public class Pistol : Gun
     {
         public override void Shoot(Transform at)
         {

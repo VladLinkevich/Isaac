@@ -7,7 +7,7 @@ using Zenject;
 namespace Isaac.Gun
 {
     [RequireComponent(typeof(BoxCollider))]
-    public abstract class BasicGun : MonoBehaviour, IGun
+    public abstract class Gun : MonoBehaviour, IGun
     {
         [SerializeField] private Transform bulletSpawnPoint;
         [SerializeField] private Vector3 localPositionOnPlayer;
