@@ -15,6 +15,8 @@ MonoBehaviour:
   Player:
     PlayerInputHandler:
       Speed: 0.5
+    PlayerView:
+      PlayerHealth: 100
   Guns:
     GunFactory:
       DefaultGunPrefab: {fileID: 6965241544929780756, guid: affb98bfe23987f449baf73af27c3f0e, type: 3}
@@ -28,3 +30,4 @@ MonoBehaviour:
   GameInstaller:
     Player: {fileID: 6216127247236871480, guid: 87a6494eec6831a47b3dbf95143c46a9, type: 3}
     PlayerStartPosition: {fileID: 4138774655835109843, guid: c1d6fbd569de7e04f9ffb0c3e2f3bdcf, type: 3}
+    EnemyPrefab: {fileID: 8713202737851135878, guid: 8461f615dcacbdf4488747a1ba90cc52, type: 3}

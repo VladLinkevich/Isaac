@@ -55,6 +55,7 @@ namespace Isaac.StartGame
 
             Container.BindInterfacesTo<PlayerInputHandler>().AsSingle();
             Container.BindInterfacesTo<PlayerRotationHandler>().AsSingle();
+            Container.BindInterfacesTo<PlayerHealthObserver>().AsSingle();
 
             Container.Bind<PlayerShootHandler>().AsSingle();
             Container.Bind<PlayerFacade>().FromComponentOn(player).AsSingle();
