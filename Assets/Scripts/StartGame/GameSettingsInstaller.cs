@@ -20,6 +20,7 @@ namespace Isaac.StartGame
         public class PlayerSettings
         {
             public PlayerInputHandler.Settings PlayerInputHandler;
+            public PlayerView.Settings PlayerView;
         }
         
         [Serializable]
@@ -39,6 +40,7 @@ namespace Isaac.StartGame
             Container.BindInstance(GameInstaller).IfNotBound();
             
             Container.BindInstance(Player.PlayerInputHandler).IfNotBound();
+            Container.BindInstance(Player.PlayerView).IfNotBound();
             
             Container.BindInstance(Guns.GunFactory).IfNotBound();
 
