@@ -5,6 +5,6 @@ namespace Isaac.Bullet
 {
     public interface IBulletFactory
     {
-        GameObject Create();
+        Bullet Create();
     }
 }

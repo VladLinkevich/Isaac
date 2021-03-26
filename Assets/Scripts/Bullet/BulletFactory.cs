@@ -16,12 +16,12 @@ namespace Isaac.Bullet
             _settings = settings;
         }
 
-        public GameObject Create()
+        public Bullet Create()
         {
             GameObject obj = _container.InstantiatePrefab(_settings.BulletPrefab);
             obj.SetActive(false);
 
-            return obj;
+            return obj.GetComponent<Bullet>();
         }
         
         [Serializable]

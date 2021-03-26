@@ -15,9 +15,10 @@ namespace Isaac.Enemy
         public void Initialize()
         {
             EnemyFacade facade = _enemyFactory.Create();
-            facade.Position = new Vector3(0, 0, 3);
+            facade.Position = new Vector3(0, 1, 3);
+            
             EnemyFacade facade2 = _enemyFactory.Create();
-            facade2.Position = new Vector3(0, 0, -3);
+            facade2.Position = new Vector3(0, 1, -3);
         }
     }
 }

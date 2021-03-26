@@ -7,7 +7,7 @@ namespace Isaac.Bullet
 {
     public class BulletPool : IInitializable, IPool
     {
-        private List<GameObject> _bullets;
+        private readonly List<Pool> _bullets;
         private int _bulletsCount;
         private GameObject _bulletsParent;
         
@@ -20,7 +20,7 @@ namespace Isaac.Bullet
             _factory = factory;
             _settings = settings;
 
-            _bullets = new List<GameObject>();
+            _bullets = new List<Pool>();
         }
         
         public void Initialize()
@@ -28,15 +28,15 @@ namespace Isaac.Bullet
             _bulletsParent = GameObject.Instantiate(_settings.Bullets);
             AddedObjectInPool(_settings.BulletStartCount);
         }
-
-        public GameObject GetObject()
+        
+        public Bullet GetObject()
         {
             foreach (var bullet in _bullets)
             {
-                if (bullet.activeInHierarchy == false)
+                if (bullet.IsActive == false)
                 {
-                    bullet.SetActive(true);
-                    return bullet;
+                    bullet.IsActive = true;
+                    return bullet.Bullet;
                 }
             }
 
@@ -53,7 +53,7 @@ namespace Isaac.Bullet
             {
                 var bullet = _factory.Create();
                 bullet.transform.parent = _bulletsParent.transform;
-                _bullets.Add(bullet);
+                _bullets.Add(new Pool(bullet, false));
             }
         }
 
@@ -68,6 +68,18 @@ namespace Isaac.Bullet
         {
             public int BulletStartCount;
             public GameObject Bullets;
+        }
+        
+        public class Pool
+        {
+            public Bullet Bullet;
+            public bool IsActive;
+
+            public Pool(Bullet bullet, bool isActive)
+            {
+                Bullet = bullet;
+                IsActive = isActive;
+            }
         }
     }
 }

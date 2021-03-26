@@ -9,6 +9,7 @@ namespace Isaac.Gun
     [RequireComponent(typeof(BoxCollider))]
     public abstract class Gun : MonoBehaviour, IGun
     {
+        [SerializeField] private BoxCollider boxCollider;
         [SerializeField] private Transform bulletSpawnPoint;
         [SerializeField] private Vector3 localPositionOnPlayer;
 
@@ -79,7 +80,7 @@ namespace Isaac.Gun
                 transform.rotation = new Quaternion(0, 0, 0, 0);
 
                 // лучше пока отключить, ибо хз на что он может наткнуться во время игры
-                GetComponent<BoxCollider>().enabled = false;
+                boxCollider.enabled = false;
             }
         }
 
@@ -94,16 +95,16 @@ namespace Isaac.Gun
 
         public virtual void Fire(Transform at)
         {
-            GameObject bullet = _bulletPool.GetObject();
+            Bullet.Bullet bullet = _bulletPool.GetObject();
+            
+            bullet.StartShooting(bulletSpawnPoint.position, at.rotation);
 
-            bullet.transform.position = bulletSpawnPoint.position;
+            //Vector3 endPoint = FindEndPoint(bulletSpawnPoint.position,
+            //    at.rotation);
 
-            Vector3 endPoint = FindEndPoint(bulletSpawnPoint.position,
-                at.rotation);
-
-            bullet.transform
-                .DOMove(endPoint, _lifeTime)
-                .OnComplete(() => _bulletPool.Destroy(bullet));
+            // bullet.transform
+            //     .DOMove(endPoint, _lifeTime)
+            //     .OnComplete(() => _bulletPool.Destroy(bullet));
         }
 
         public void Throw()

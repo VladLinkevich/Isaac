@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265885e74096484a85b8f0f79429f73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCollider: {fileID: 125873137415565474}
   bulletSpawnPoint: {fileID: 1724350331593699603}
   localPositionOnPlayer: {x: 0.75, y: 0, z: -0.5}
   maxShootDelay: 0.25

@@ -16,22 +16,16 @@ namespace Isaac.Enemy.State
         }
         public void EnterState()
         {
-            Debug.Log("Enter");
 
-            //throw new System.NotImplementedException();
         }
 
         public void ExitState()
         {
-            Debug.Log("Exit");
-
-            //throw new System.NotImplementedException();
         }
 
         public void Update()
         {
-            Debug.Log("Update");
-            //throw new System.NotImplementedException();
+
         }
     }
 }
