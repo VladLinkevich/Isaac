@@ -26,6 +26,11 @@ namespace Isaac.Enemy
         public void Initialize()
         {
             ChangeState(EnemyState.Idle);
+
+            foreach (var state in _states)
+            {
+                state.Initialize();
+            }
         }
 
         private void ChangeState(EnemyState state)
