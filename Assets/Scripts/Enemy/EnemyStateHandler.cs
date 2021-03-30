@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Isaac.Enemy.State;
 using Zenject;
+using UnityEngine;
 
 namespace Isaac.Enemy
 {
@@ -33,7 +34,7 @@ namespace Isaac.Enemy
             }
         }
 
-        private void ChangeState(EnemyState state)
+        public void ChangeState(EnemyState state)
         {
             _currentStateHandler?.ExitState();
 
