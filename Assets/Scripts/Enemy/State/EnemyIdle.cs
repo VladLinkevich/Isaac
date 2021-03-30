@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject.SpaceFighter;
 
 namespace Isaac.Enemy.State
 {
@@ -21,11 +22,12 @@ namespace Isaac.Enemy.State
 
         public void ExitState()
         {
+            
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
-
+               
         }
     }
 }

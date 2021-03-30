@@ -4,6 +4,11 @@ namespace Isaac.Enemy
 {
     public class EnemyView : MonoBehaviour
     {
-        //public 
+        [SerializeField] private CharacterController _character;
+
+        public void Move(Vector3 movement)
+        {
+            _character.Move(movement);
+        }
     }
 }

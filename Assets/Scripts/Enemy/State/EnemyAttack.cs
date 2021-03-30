@@ -4,17 +4,17 @@
     {
         public void EnterState()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public void ExitState()
         {
-            throw new System.NotImplementedException();
+            
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

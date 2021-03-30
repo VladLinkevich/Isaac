@@ -12,7 +12,7 @@ namespace Isaac.Player
 		private Slider _slider;
 		private void Start()
 		{
-			PlayerHealthObserver.HealthBarUpdate = UpdateSlider;
+			PlayerHealthObserver.OnHealthBarUpdate += UpdateSlider;
 		}
 
 		public void UpdateSlider(float actualHealth)

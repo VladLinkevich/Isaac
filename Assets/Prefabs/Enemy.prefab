@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6595705360977370066}
   - component: {fileID: 8767400654119373393}
   - component: {fileID: 4849994164729406226}
+  - component: {fileID: 4215701114880982073}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -95,6 +96,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &4215701114880982073
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176407261220090477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8713202737851135878
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +164,7 @@ MonoBehaviour:
   - {fileID: 3755685638554459890}
   - {fileID: 2092091108758171434}
   _identifier: 
-  _useSceneContext: 0
+  _useSceneContext: 1
   _context: {fileID: 0}
   _bindType: 0
 --- !u!114 &3755685638554459890
@@ -172,3 +191,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff02d4cc67214aa6a82f128b335548cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _character: {fileID: 4215701114880982073}

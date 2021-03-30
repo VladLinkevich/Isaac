@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Isaac.Enemy
 {
-    public class EnemyStateHandler : ITickable, IInitializable
+    public class EnemyStateHandler : IFixedTickable, IInitializable
     {
         private List<IEnemyState> _states;
 
@@ -38,9 +38,9 @@ namespace Isaac.Enemy
             _currentStateHandler.EnterState();
         }
 
-        public void Tick()
+        public void FixedTick()
         {
-            _currentStateHandler.Update();
+            _currentStateHandler?.FixedUpdate();
         }
     }
 }

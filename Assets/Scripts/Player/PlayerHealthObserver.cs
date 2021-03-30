@@ -9,7 +9,7 @@ namespace Isaac.Player
 	public class PlayerHealthObserver : ITickable
 	{
 		private readonly PlayerView _playerView;
-		static public Action<float> HealthBarUpdate;
+		public static event Action<float> OnHealthBarUpdate;
 
 		public PlayerHealthObserver(PlayerView playerView)
 		{
@@ -36,7 +36,7 @@ namespace Isaac.Player
 		public void TakeDamage()
 		{
 			_playerView.Health -= 10;
-			HealthBarUpdate(_playerView.Health);
+			OnHealthBarUpdate?.Invoke(_playerView.Health);
 		}
 	}
 }
