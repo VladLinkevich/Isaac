@@ -5,6 +5,6 @@ namespace Isaac.Bullet
     public interface IPool
     {
         Bullet GetObject();
-        void Destroy(GameObject bullet);
+        void Destroy(Bullet bullet);
     }
 }

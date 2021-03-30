@@ -58,9 +58,10 @@ namespace Isaac.Bullet
         }
 
 
-        public void Destroy(GameObject bullet)
+        public void Destroy(Bullet bullet)
         {
-            bullet.SetActive(false);
+            var find = _bullets.Find(x => x.Bullet == bullet);
+            find.IsActive = false;
         }
         
         [Serializable]

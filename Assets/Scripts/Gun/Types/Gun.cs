@@ -17,6 +17,7 @@ namespace Isaac.Gun
         [SerializeField] private float range;
         [SerializeField] private float speed;
         [SerializeField] private float damage;
+        [SerializeField] private float bulletLifeTime;
 
         private PlayerShootHandler _playerShoot;
         private IPool _bulletPool;
@@ -97,7 +98,7 @@ namespace Isaac.Gun
         {
             Bullet.Bullet bullet = _bulletPool.GetObject();
             
-            bullet.StartShooting(bulletSpawnPoint.position, at.rotation);
+            bullet.StartShooting(bulletSpawnPoint.position, at.rotation, speed, bulletLifeTime);
 
             //Vector3 endPoint = FindEndPoint(bulletSpawnPoint.position,
             //    at.rotation);
