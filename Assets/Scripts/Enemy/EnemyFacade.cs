@@ -8,6 +8,8 @@ namespace Isaac.Enemy
 {
     public class EnemyFacade : MonoBehaviour, IPoolable<IMemoryPool>, IDisposable
     {
+        public Transform Transform => gameObject.transform;
+
         public Vector3 Position
         {
             get => gameObject.transform.position;

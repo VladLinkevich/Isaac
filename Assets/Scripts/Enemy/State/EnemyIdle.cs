@@ -5,6 +5,7 @@ using Zenject;
 
 namespace Isaac.Enemy.State
 {
+    //[CreateAssetMenu(fileName = "EnemyIdleState", menuName = "EnemyIdle")]
     public class EnemyIdle : IEnemyState
     {
         private readonly EnemyView _enemy;
@@ -40,7 +41,13 @@ namespace Isaac.Enemy.State
 
         public void FixedUpdate()
         {
-               
+            //_enemy.transform.LookAt(_player.transform.position);
+            RaycastHit hitInfo;
+            if (Physics.Raycast(_enemy.transform.position, _enemy.transform.TransformDirection(Vector3.forward),out hitInfo, 10)
+                && hitInfo.collider.gameObject.name == _player.name)
+            {
+                _enemyStateHandler.ChangeState(EnemyState.Attack);
+            }
         }
         
         [Serializable]
