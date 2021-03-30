@@ -1,5 +1,6 @@
 ﻿using System;
 using Isaac.Bullet;
+using Isaac.Enemy.State;
 using Isaac.Gun;
 using Isaac.Player;
 using Zenject;
@@ -14,6 +15,7 @@ namespace Isaac.StartGame
         public PlayerSettings Player;
         public GunsSettings Guns;
         public BulletsSettings Bullets;
+        public EnemySettings Enemy;
         public GameInstaller.Settings GameInstaller;
         
         [Serializable]
@@ -35,6 +37,13 @@ namespace Isaac.StartGame
             public BulletFactory.Settings BulletFactory;
             public BulletPool.Settings BulletPool;
         }
+        
+        [Serializable]
+        public class EnemySettings
+        {
+            public EnemyIdle.Settings EnemyIdle;
+            public EnemyAttack.Settings EnemyAttack;
+        }
         public override void InstallBindings()
         {
             Container.BindInstance(GameInstaller).IfNotBound();
@@ -46,6 +55,9 @@ namespace Isaac.StartGame
 
             Container.BindInstance(Bullets.BulletFactory).IfNotBound();
             Container.BindInstance(Bullets.BulletPool).IfNotBound();
+            
+            Container.BindInstance(Enemy.EnemyIdle).IfNotBound();
+            Container.BindInstance(Enemy.EnemyAttack).IfNotBound();
         }
     }
 }
